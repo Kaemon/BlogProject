@@ -9,12 +9,15 @@ class PostController extends Controller
 {
     public function index()
     {
+        $topPost = Post::where('status', 'published')->latest()->first();
+
         return view('welcome', [
             'posts' => Post::where('status', 'published')
                 ->when(request('category'), fn ($q, $id) => $q->where('category_id', $id))
                 ->latest()
                 ->get(),
             'categories' => Category::all(),
+            'topPost' => $topPost,
         ]);
     }
 
