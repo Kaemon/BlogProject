@@ -27,4 +27,14 @@ class PostController extends Controller
             'post' => $post,
         ]);
     }
+
+    public function search()
+    {
+        $query = request('q');
+        $posts = Post::where('status', 'published')
+            ->where('title', 'like', "%{$query}%")
+            ->get();
+        return view('search', ['posts' => $posts, 'query' => $query]);
+    }
+
 }
