@@ -4,6 +4,7 @@ namespace App\Filament\Resources\Categories\Schemas;
 
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
+use Filament\Forms\Components\FileUpload;
 
 class CategoryForm
 {
@@ -13,6 +14,12 @@ class CategoryForm
             ->components([
                 TextInput::make('name')
                     ->required(),
+                FileUpload::make('image')
+                    ->image()
+                    ->disk('public')
+                    ->directory('posts')
+                    ->maxSize(10240)  
+                    ->nullable(),
             ]);
     }
 }
