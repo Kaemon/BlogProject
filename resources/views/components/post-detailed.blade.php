@@ -4,8 +4,8 @@
 <div class="max-w-3xl mx-auto px-6 py-10">
         <div class="flex items-center gap-3 mb-4">
             <a href="/" class="text-sm text-gray-400 hover:text-white transition-colors">← Back</a>
-            <span class="text-gray-600">|</span>
-            <span class="text-sm text-gray-400">{{ $post->category->name }}</span>
+            <p class="text-gray-600">|</p>
+            <p class="text-sm text-gray-400">{{ $post->category->name }}</p>
         </div>
 
         <h1 class="text-3xl font-bold mb-3">{{ $post->title }}</h1>
@@ -17,5 +17,5 @@
             </div>
         @endif
 
-        <p class="text-gray-300 leading-relaxed">{{ $post->description }}</p>
+        <div class="post-content text-gray-300 leading-relaxed">{!! $post->description !!}</div>
 </div>

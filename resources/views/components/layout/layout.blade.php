@@ -7,7 +7,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <title>Filament and Laravel</title>
 </head>
-<body class="bg-background text-foreground min-h-screen">
+<body class="bg-background text-foreground">
     <x-layout.nav></x-layout.nav>
         <main>
             {{ $slot }}

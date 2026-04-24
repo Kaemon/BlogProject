@@ -20,6 +20,6 @@ class CategoryForm
                     ->directory('posts')
                     ->maxSize(10240)  
                     ->nullable(),
-            ]);
+            ])->columns(1);
     }
 }

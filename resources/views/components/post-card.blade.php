@@ -8,11 +8,11 @@
     @endif
     <div class="px-6 pb-6 flex flex-col gap-3">
         <div class="flex items-center justify-between">
-            <span class="text-xs text-gray-400">{{ $post->category->name ?? 'Uncategorized' }}</span>
-            <span class="text-xs px-2 py-0.5 rounded-full bg-green-900/50 text-green-400">{{ $post->status }}</span>
+            <span class="text-xs text-gray-400">{{ $post->category->name }}</span>
+            <span class="text-xs px-3 py-1 rounded-full bg-green-900/50 text-green-400">{{ $post->status }}</span>
         </div>
         <h2 class="text-lg font-semibold">{{ $post->title }}</h2>
         <p class="text-xs text-gray-500">{{ $post->created_at->diffForHumans() }}</p>
-        <p class="text-gray-400 text-sm line-clamp-3">{{ $post->description }}</p>
+        <p class="text-gray-400 text-sm line-clamp-3">{{ strip_tags($post->description) }}</p>
     </div>
 </a>
