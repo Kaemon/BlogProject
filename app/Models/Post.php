@@ -30,11 +30,6 @@ class Post extends Model
         });
     }
 
-    public function getRouteKeyName(): string
-    {
-        return 'slug';
-    }
-
     #[BelongsTo(Category::class)
     ]
     public function category(): BelongsTo

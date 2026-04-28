@@ -5,6 +5,7 @@ namespace App\Filament\Resources\Categories\Schemas;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Select;
 
 class CategoryForm
 {
@@ -20,6 +21,12 @@ class CategoryForm
                     ->directory('posts')
                     ->maxSize(10240)  
                     ->nullable(),
+                Select::make('status')
+                    ->required()
+                    ->options([
+                        'draft' => 'Draft',
+                        'published' => 'Published',
+                    ]),
             ])->columns(1);
     }
 }

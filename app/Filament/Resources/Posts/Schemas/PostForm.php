@@ -2,13 +2,12 @@
 
 namespace App\Filament\Resources\Posts\Schemas;
 
-use Filament\Forms\Components\Select;
-use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\Textarea;
-use Filament\Schemas\Schema;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\RichEditor;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Section;
+use Filament\Schemas\Schema;
 
 class PostForm
 {
@@ -23,7 +22,16 @@ class PostForm
                             ->relationship('category', 'name')
                             ->searchable()
                             ->preload()
-                            ->required(),
+                            ->required()
+                            ->createOptionForm([
+                                TextInput::make('name')
+                                    ->required(),
+                                FileUpload::make('image')
+                                    ->image()
+                                    ->disk('public')
+                                    ->directory('categories')
+                                    ->nullable(),
+                            ])
                     ])->columns(1),
                 Section::make('Blog Post Content')
                     ->description('Enter the details of the blog post here.')
@@ -33,7 +41,7 @@ class PostForm
                             ->image()
                             ->disk('public')
                             ->directory('posts')
-                            ->maxSize(10240)  
+                            ->maxSize(10240)
                             ->nullable(),
                         TextInput::make('title')
                             ->required(),
@@ -49,8 +57,8 @@ class PostForm
                             ->fileAttachmentsDisk('public')
                             ->fileAttachmentsDirectory('attachments')
                             ->columnSpanFull(),
-                            ])->columns(3),
-                
+                    ])->columns(3),
+
             ])->columns(1);
     }
 }

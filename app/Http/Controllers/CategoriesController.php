@@ -9,7 +9,7 @@ class CategoriesController extends Controller
     public function index()
     {
         return view('categories', [
-            'categories' => Category::all(),
+            'categories' => Category::where('status', 'published')->latest()->get(),
         ]);
     }
 

@@ -8,7 +8,7 @@ use Illuminate\Support\Str;
 
 class Category extends Model
 {
-    protected $fillable = ['name', 'slug','image'];
+    protected $fillable = ['name', 'slug', 'image', 'status'];
 
     protected static function booted(): void
     {
@@ -27,5 +27,10 @@ class Category extends Model
     public function posts(): HasMany
     {
         return $this->hasMany(Post::class);
+    }
+
+    public function getPostCountAttribute(): int
+    {
+        return $this->posts()->count();
     }
 }

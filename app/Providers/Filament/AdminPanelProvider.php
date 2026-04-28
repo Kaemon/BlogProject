@@ -28,6 +28,7 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->login()
+            ->renderHook('panels::head.end', fn () => '<style>.fi-in-text ul{list-style-type:disc;padding-left:1.5rem}.fi-in-text ol{list-style-type:decimal;padding-left:1.5rem}</style>')
             ->brandLogo(asset('images/logo.png'))
             ->brandLogoHeight('2rem')
             ->colors([
