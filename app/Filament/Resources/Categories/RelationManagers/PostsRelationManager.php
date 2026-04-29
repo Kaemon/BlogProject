@@ -30,6 +30,6 @@ class PostsRelationManager extends RelationManager
             ->filters([
 
             ])
-            ->defaultSort('created_at', 'asc');
+            ->defaultSort('title', 'asc');
     }
 }

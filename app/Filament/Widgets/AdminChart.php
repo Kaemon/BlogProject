@@ -11,7 +11,7 @@ class AdminChart extends ChartWidget
 
     protected function getData(): array
     {
-        $data = Category::withCount('posts')->get();
+        $data = Category::where('status','published')->withCount('posts')->orderBy('posts_count','desc')->take(5)->get();
         return [
             'datasets' => [
                 [

@@ -14,7 +14,6 @@
                         <span class="text-xs font-medium px-3 py-1 rounded-full bg-white/20 text-white backdrop-blur-sm">{{ $topPost->category->name }}</span>
                         <span class="text-xs text-gray-400">{{ $topPost->created_at->diffForHumans() }}</span>
                         <span class="text-xs px-3 py-1 rounded-full bg-green-900/50 text-green-400">{{ $topPost->status }}</span>
-
                     </div>
                     <h2 class="text-4xl font-bold text-white leading-tight max-w-3xl group-hover:text-gray-200 transition-colors">{{ $topPost->title }}</h2>
                     <p class="text-gray-300 text-sm line-clamp-2 max-w-2xl">{{ strip_tags($topPost->description) }}</p>
