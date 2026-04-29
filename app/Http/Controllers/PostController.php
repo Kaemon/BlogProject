@@ -9,8 +9,6 @@ class PostController extends Controller
 {
     public function index()
     {
-        $topPost = Post::where('status', 'published')->whereHas('category',fn($q)=> $q->where('status','published'))->latest()->first();
-
         return view('welcome', [
             'posts' => Post::where('status', 'published')
                 ->whereHas('category',fn($q)=> $q->where('status','published'))
@@ -18,7 +16,7 @@ class PostController extends Controller
                 ->latest()
                 ->get(),
             'categories' => Category::where('status', 'published')->get(),
-            'topPost' => $topPost,
+            'topPost' => Post::where('status', 'published')->whereHas('category',fn($q)=> $q->where('status','published'))->latest()->first(),
         ]);
     }
 

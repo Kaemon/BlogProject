@@ -34,7 +34,7 @@
         
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             @forelse ($posts as $post)
-                <x-post-card :post="$post" :category="$category"/>
+                <x-post-card :post="$post"/>
             @empty
                 <p class="text-gray-500 col-span-3">No posts yet.</p>
             @endforelse
