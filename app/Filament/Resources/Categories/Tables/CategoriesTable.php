@@ -13,6 +13,7 @@ use Filament\Tables\Enums\FiltersLayout;
 use Filament\Tables\Filters\Filter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
+use Filament\Notifications\Notification;
 
 class CategoriesTable
 {
@@ -54,7 +55,7 @@ class CategoriesTable
             ->recordActions([
                 ViewAction::make()->modal(),
                 EditAction::make(),
-                DeleteAction::make(),
+                DeleteAction::make()->successNotification(Notification::make()->success()->title('Category Deleted')->body('The category has been successfully deleted.')),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
